@@ -46,7 +46,7 @@ import { scrollToSpecificPos } from '../../../../utils/'
 import MonthScheduleBody from './MonthScheduleBody'
 
 export default {
-  name: "qMonth",
+  name: "eqMonth",
   components: {
     MonthScheduleBody
   },

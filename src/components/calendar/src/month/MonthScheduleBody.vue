@@ -22,7 +22,7 @@
 import { isToday, isTheSameMonth } from 'eq-calendar-support'
 
 export default {
-  name: "qMonthBody",
+  name: "eqMonthBody",
   props: {
     date: [Date, Number, String],
     /**

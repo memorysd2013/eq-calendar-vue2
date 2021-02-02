@@ -1,6 +1,6 @@
 import eqCalendar from './src/eqCalendar.vue'
 eqCalendar.install = function (Vue) {
-  Vue.component('q-calendar', eqCalendar)
+  Vue.component('eq-calendar', eqCalendar)
 }
 
 export default eqCalendar

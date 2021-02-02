@@ -3,6 +3,7 @@
     :style="{ height: height }"
   )
     MonthSchedule(
+      ref="MonthSchedule"
       :date="date"
       :template="calendar"
       :weekStartAt="weekStartAt"
@@ -112,6 +113,10 @@ export default {
 
     onScroll(event) {
       this.$emit('onScroll', event)
+    },
+
+    scrollToCurrentMonth() {
+      this.$refs['MonthSchedule'].scrollToCurrentMonth()
     }
   }
 }
