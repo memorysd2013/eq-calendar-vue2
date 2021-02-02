@@ -1,7 +1,8 @@
 {
   "name": "eq-calendar-vue2",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/eq-calendar-vue2.common.js",
+  "style": "dist/eq-calendar-vue2.css",
   "license": "MIT",
   "scripts": {
     "dev": "vue-cli-service serve",
