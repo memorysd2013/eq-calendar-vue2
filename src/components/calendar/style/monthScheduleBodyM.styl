@@ -1,0 +1,53 @@
+schedule_body_grid_h = 125px
+schedule_border = 1px solid #ddd
+
+// body
+@media screen and (max-width: 768px)
+  .MonthScheduleBody
+    flex-wrap wrap
+    &:not(.currentMonth)
+      opacity .5
+    .schedule__body__grid
+      position relative
+      z-index 10
+      width calc(100% / 7)
+      height schedule_body_grid_h
+      flex 0 0 auto
+      flex-direction column
+      border schedule_border
+      &.multiple
+        &:not(.pointer)
+          z-index -10
+          pointer-events none
+
+    .grid__date
+      width 100%
+      text-align center
+      line-height 1.5
+      color #333
+      margin-top 8px
+      margin-bottom 2px
+      &.today
+        font-weight 500
+        color success_c
+
+    .grid__content
+      position relative
+      width 100%
+
+    .grid__content__tag
+      font-size .75rem
+      width 100%
+      border-radius 2px
+      text-align center
+      &+.grid__content__tag
+        margin-top 2px
+
+    .grid__content__more
+      font-size .875rem
+      color #333
+
+    .grid__content__moreList
+      position absolute
+      top -36px
+      z-index 2

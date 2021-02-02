@@ -1,0 +1,44 @@
+.ufi-m
+  +pc()
+    display none !important
+.ufi-pc
+  +mobile()
+    display none !important
+
+.grid
+  display grid
+
+.flex
+  display flex
+  &.inline
+    display inline-flex
+  &.column
+    flex-direction column
+  &.v-center
+    align-items center
+  &.h-center
+    justify-content center
+  &.between
+    justify-content space-between
+  &.evenly
+    justify-content space-evenly
+  &.around
+    justify-content space-around
+  &.flex-start
+    justify-content flex-start
+  &.flex-end
+    justify-content flex-end
+  &.center-center
+    justify-content center
+    align-items center
+  &.align-flex-end
+    align-items flex-end
+  &.align-flex-start
+    align-items flex-start
+  &.wrap
+    flex-wrap: wrap
+  &.reverse
+    flex-direction row-reverse
+
+.pointer
+  cursor pointer

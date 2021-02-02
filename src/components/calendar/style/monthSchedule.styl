@@ -1,0 +1,33 @@
+// schedule setting
+schedule_min_w = 1110px
+
+//
+.MonthSchedule
+  @media screen and (min-width: 768px)
+    position relative
+    background-color #fff
+    max-width 1366px
+    min-width schedule_min_w
+    border-radius 4px
+    // 讓 SingleDayList 組件可以延伸出 schedule
+    overflow visible
+    box-shadow 0 3px 6px 0 rgba(0, 0, 0, 0.16)
+
+    // 全部 grid 共用
+    .schedule__header__col
+      width calc(100% / 7)
+
+    // header
+    .schedule__header
+      background-color #ccc
+
+      .schedule__header__col
+        text-align center
+        padding .25rem
+        font-weight 500
+        &.brackets
+          &:before
+            content attr(data-brackettype-prefix)
+          &:after
+            content attr(data-brackettype-suffix)
+

@@ -1,0 +1,41 @@
+schedule_body_h = 100px
+schedule_border = 1px solid #ddd
+date_w = 20px
+
+// body
+@media screen and (min-width: 768px)
+  .MonthScheduleBody
+    flex-wrap wrap
+    .schedule__body__grid
+      width calc(100% / 7)
+      padding .25rem
+      height schedule_body_h
+      flex 0 0 auto
+      border schedule_border
+
+    .grid__date
+      width date_w
+      line-height 1.5
+      color #333
+      &.today
+        font-weight 500
+        color success_c
+
+    .grid__content
+      width 'calc(100% - %s)' % date_w
+      position relative
+
+    .grid__content__tag
+      margin-bottom .25rem
+
+    .grid__content__more
+      font-size .875rem
+      color #333
+      .showMoreItem
+        &:before
+          content attr(data-contentlength)
+
+    .grid__content__moreList
+      position absolute
+      top -36px
+      z-index 2

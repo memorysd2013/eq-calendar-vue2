@@ -1,0 +1,41 @@
+// schedule setting
+schedule_min_w = 100%
+schedule_header_sticky = 0px
+schedule__header_h = 40px
+
+//
+.MonthSchedule
+  @media screen and (max-width: 768px)
+    position relative
+    background-color #fff
+    max-width 1366px
+    min-width schedule_min_w
+    height auto
+    border-radius 4px
+    // 讓 SingleDayList 組件可以延伸出 schedule
+    overflow visible
+    box-shadow 0 3px 6px 0 rgba(0, 0, 0, 0.16)
+
+    // 全部 grid 共用
+    .schedule__header__col
+      width calc(100% / 7)
+
+    // header
+    .schedule__header
+      position sticky
+      top schedule_header_sticky
+      z-index 15
+      width 100%
+      background-color #fff
+      border-bottom 1px solid #ddd
+      box-shadow 0 4px 4px 0 rgba(0,0,0,.1)
+      height schedule__header_h
+
+      .schedule__header__col
+        text-align center
+        padding .25rem
+    
+    .schedule__body
+      flex-wrap wrap
+      position relative
+      overflow auto
