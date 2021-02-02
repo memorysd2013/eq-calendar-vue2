@@ -1,0 +1,2 @@
+yarn library
+yarn publish
