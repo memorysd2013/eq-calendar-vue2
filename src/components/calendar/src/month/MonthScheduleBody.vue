@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { isToday, isTheSameMonth } from 'q-calendar-support'
+import { isToday, isTheSameMonth } from 'eq-calendar-support'
 
 export default {
   name: "qMonthBody",

@@ -1,16 +1,16 @@
 ## Install
 ```shell
-yarn add q-calendar-vue2
-npm i q-calendar-vue2
+yarn add eq-calendar-vue2
+npm i eq-calendar-vue2
 ```
 
 ## Quick Start
 ``` javascript
 import Vue from 'vue'
-import qCalendar from 'q-calendar-vue2'
-import 'q-calendar-vue2/dist/q-calendar-vue2.css'
+import eqCalendar from 'eq-calendar-vue2'
+import 'eq-calendar-vue2/dist/eq-calendar-vue2.css'
 
-Vue.use(qCalendar)
+Vue.use(eqCalendar)
 ```
 
 ## All Parameters

@@ -1,6 +1,6 @@
-import qCalendar from './src/qCalendar.vue'
-qCalendar.install = function (Vue) {
-  Vue.component('q-calendar', qCalendar)
+import eqCalendar from './src/eqCalendar.vue'
+eqCalendar.install = function (Vue) {
+  Vue.component('q-calendar', eqCalendar)
 }
 
-export default qCalendar
+export default eqCalendar

@@ -1,17 +1,18 @@
 {
-  "name": "q-calendar-vue2",
+  "name": "eq-calendar-vue2",
   "version": "1.0.0",
-  "main": "dist/q-calendar-vue2.common.js",
+  "main": "dist/eq-calendar-vue2.common.js",
   "license": "MIT",
   "scripts": {
     "dev": "vue-cli-service serve",
     "dev:m": "vue-cli-service serve --host 0.0.0.0",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "library": "vue-cli-service build --target lib --name q-calendar-vue2 ./src/components/calendar/index.js"
+    "library": "vue-cli-service build --target lib --name eq-calendar-vue2 ./src/components/calendar/index.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "eq-calendar-support": "^1.0.0",
     "eslint-loader": "^4.0.2",
     "pug": "^3.0.0",
     "pug-plain-loader": "^1.1.0",

@@ -20,7 +20,7 @@
 import MonthSchedule from './month/MonthSchedule'
 
 export default {
-  name: 'qCalendar',
+  name: 'eqCalendar',
   components: {
     MonthSchedule
   },

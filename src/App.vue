@@ -1,6 +1,6 @@
 <template lang="pug">
   section.main
-    qCalendar(
+    eqCalendar(
       mode="month"
       height="90vh"
       :calendar="template"
@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import { getTemplate } from 'q-calendar-support'
-import qCalendar from '@/components/calendar/src/qCalendar'
+import { getTemplate } from 'eq-calendar-support'
+import eqCalendar from '@/components/calendar/src/eqCalendar'
 
 export default {
   name: 'App',
   components: {
-    qCalendar
+    eqCalendar
   },
 
   data: () => ({
