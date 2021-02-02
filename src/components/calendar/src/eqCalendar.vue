@@ -115,8 +115,8 @@ export default {
       this.$emit('onScroll', event)
     },
 
-    scrollToCurrentMonth() {
-      this.$refs['MonthSchedule'].scrollToCurrentMonth()
+    scrollToCurrentMonth({ animate, offset }) {
+      this.$refs['MonthSchedule'].scrollToCurrentMonth({ animate, offset })
     }
   }
 }
