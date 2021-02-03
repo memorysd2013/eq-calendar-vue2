@@ -12,7 +12,7 @@
       :class="{ pointer: dayObj.day, multiple }" 
       @click.self="clickGrid($event, dayObj)"
     )
-      .grid__date(:class="{ today: isToday(dayObj) }" @click.self="clickGrid($event, dayObj)")
+      .grid__date(:class="{ today: dayObj.today }" @click.self="clickGrid($event, dayObj)")
         span {{ dayObj.day }}
       .grid__content.flex.column.v-center(@click.self="clickGrid($event, dayObj)")
         slot(name="content" :dayObj="dayObj")
@@ -65,6 +65,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../../style/monthScheduleBody.styl'
-@import '../../style/monthScheduleBodyM.styl'
+@import '../../style/month/monthScheduleBody.styl'
+@import '../../style/month/monthScheduleBodyM.styl'
 </style>

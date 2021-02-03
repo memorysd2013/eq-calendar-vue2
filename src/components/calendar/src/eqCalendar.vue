@@ -2,28 +2,41 @@
   section.calendar-wrapper(
     :style="{ height: height }"
   )
-    MonthSchedule(
-      ref="MonthSchedule"
-      :date="date"
-      :template="calendar"
-      :weekStartAt="weekStartAt"
-      :options="options"
-      :positionList.sync="calendarPosList"
-      @clickGrid="clickGrid"
-      @scroll="onScroll"
-    )
-      template(v-slot:content="{ dayObj }")
-        slot(name="content" :dayObj="dayObj")
-
+    //- Year 年曆
+    // .........
+    //- Month 月曆
+    template(v-if="mode === 'Month'")
+      MonthSchedule(
+        ref="MonthSchedule"
+        :date="date"
+        :template="calendar"
+        :weekStartAt="weekStartAt"
+        :options="options"
+        :positionList.sync="calendarPosList"
+        @clickGrid="clickGrid"
+        @scroll="onScroll"
+      )
+        template(v-slot:content="{ dayObj }")
+          slot(name="content" :dayObj="dayObj")
+    
+    //- Week 週曆
+    template(v-else-if="mode === 'Week'")
+      WeekSchedule(
+        ref="WeekSchedule"
+        :date="date"
+        :template="calendar" 
+      )
 </template>
 
 <script>
 import MonthSchedule from './month/MonthSchedule'
+import WeekSchedule from './week/WeekSchedule'
 
 export default {
   name: 'eqCalendar',
   components: {
-    MonthSchedule
+    MonthSchedule,
+    WeekSchedule
   },
   props: {
     /**

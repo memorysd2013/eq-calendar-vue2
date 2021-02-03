@@ -1,7 +1,8 @@
 <template lang="pug">
   section.main
+    h2 
     eqCalendar(
-      mode="month"
+      :mode="mode"
       height="90vh"
       :calendar="template"
       :positionList="calendarPosList"
@@ -11,7 +12,7 @@
 </template>
 
 <script>
-import { getTemplate } from 'eq-calendar-support'
+import { getEmptyTemplate, getWholeWeekday } from 'eq-calendar-support'
 import eqCalendar from '@/components/calendar/src/eqCalendar'
 
 export default {
@@ -21,24 +22,79 @@ export default {
   },
 
   data: () => ({
+    mode: 'Month',
     template: [],
-    calendarPosList: {}
+    calendarPosList: {},
+
+    //
+    resizeDebounce: null,
+    resizeDebounceTimer: null
   }),
 
-  mounted() {
-    this.template = [
-      getTemplate({ year: 2020, month: 12 }),
-      getTemplate({ year: 2021, month: 1 }),
-      getTemplate({ year: 2021, month: 2 }),
-      getTemplate({ year: 2021, month: 3 }),
-      getTemplate({ year: 2021, month: 4 }),
-      getTemplate({ year: 2021, month: 5 })
-    ]
+  destroyed() {
+    window.removeEventListener('resize', this.resizeListener, true)
+    this.$store.commit('DateV2/setPickedDate', new Date().getTime())
+    this.$store.commit('Calendar/clearCalendarPosList')
+  },
+
+  async mounted() {
+    window.addEventListener('resize', this.resizeListener, true)
+    this.setTemplate()
   },
   methods: {
     console(slotProps) {
       console.log('App: slotProps', slotProps)
+    },
+
+    isMobile() {
+      return window.innerWidth < 768
+    },
+
+    /**
+     * Resize 時 reload leave page (透過更新 router 切換)
+     */
+    resizeListener() {
+      if (this.isMobile()) {
+        this.loading = true
+        if (this.resizeDebounce)
+          clearTimeout(this.resizeDebounceTimer)
+
+        this.resizeDebounce = true
+        this.resizeDebounceTimer = setTimeout(() => {
+          this.setTemplate()
+          this.loading = false
+        }, 100)
+      }
+    },
+
+    setTemplate() {
+      let arr
+      switch (this.mode) {
+        case 'Month':
+          arr = this.isMobile()
+            ? [
+              getEmptyTemplate({ year: 2020, month: 12 }),
+              getEmptyTemplate({ year: 2021, month: 1 }),
+              getEmptyTemplate({ year: 2021, month: 2 }),
+              getEmptyTemplate({ year: 2021, month: 3 }),
+              getEmptyTemplate({ year: 2021, month: 4 }),
+              getEmptyTemplate({ year: 2021, month: 5 })
+            ]
+            : getEmptyTemplate({ year: 2021, month: 2 })
+          break
+        case 'Week':
+          arr = getWholeWeekday(new Date(), 0)
+          break
+      }
+
+      this.template = arr
     }
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+  .main
+    max-width 1366px
+    margin auto
+</style>

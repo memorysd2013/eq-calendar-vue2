@@ -212,8 +212,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../../style/monthSchedule.styl'
-@import '../../style/monthScheduleM.styl'
+@import '../../style/month/monthSchedule.styl'
+@import '../../style/month/monthScheduleM.styl'
 
 .MonthScheduleBody
   & + .MonthScheduleBody:not(.donotAddMgt)
