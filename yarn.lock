@@ -3390,10 +3390,10 @@ entities@^2.0.0:
   resolved "https://registry.yarnpkg.com/entities/-/entities-2.2.0.tgz#098dc90ebb83d8dffa089d55256b351d34c4da55"
   integrity sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==
 
-eq-calendar-support@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/eq-calendar-support/-/eq-calendar-support-1.0.4.tgz#006e2f493590e18109cf80d6ff87f4ae725444b8"
-  integrity sha512-jzByvmjEg9Pkixd0Xzt8Vi2BMUn91PYcFBUZzeSBqQINyK71U4/pfUPyWRlfH/M4AWZHyTU/KSwOfQ4F1RkSsA==
+eq-calendar-support@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/eq-calendar-support/-/eq-calendar-support-1.0.5.tgz#d66904a1acfa2d58fb262cfd441fa979a963ee6e"
+  integrity sha512-omwW5xquz+h9+RW4Y4kXL7+VpdVn3lHsVktM/oRAzGXjn8GogPBia+LGQtw/3t2/CaDG3lNHW3gLMGlDwCCvVQ==
   dependencies:
     dayjs "^1.10.4"
     eslint "^7.19.0"

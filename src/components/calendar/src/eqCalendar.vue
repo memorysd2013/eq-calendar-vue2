@@ -24,8 +24,12 @@
       WeekSchedule(
         ref="WeekSchedule"
         :date="date"
-        :template="calendar" 
+        :template="calendar"
+        :weekStartAt="weekStartAt"
       )
+        template(v-slot:fixedHeader)
+          slot(name="fixedHeader")
+
 </template>
 
 <script>
@@ -83,6 +87,10 @@ export default {
     },
 
     /**
+     * // TODO
+     *  - 現在都只有變更 Header 的順序
+     *  - Template 的順序沒有變更
+     * ----------------------------
      * First day in the week
      * All options:
      *  - Sun (週日), Mon (週一)

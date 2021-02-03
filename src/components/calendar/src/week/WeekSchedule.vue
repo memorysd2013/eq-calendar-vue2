@@ -2,9 +2,14 @@
   .WeekSchedule
     WeekScheduleHeader(
       :date="date"
+      :calendar="template"
+      :weekStartAt="weekStartAt"
     )
+      template(v-slot:fixedHeader)
+        slot(name="fixedHeader")
     WeekScheduleBody(
       :calendar="template"
+      :weekStartAt="weekStartAt"
     )
 
 </template>
@@ -23,6 +28,7 @@ export default {
   props: {
     date: [Date, Number, String],
     template: Array,
+    weekStartAt: String
   },
   data: () => ({}),
 

@@ -8,6 +8,8 @@
       :positionList="calendarPosList"
       weekStartAt="Sun"
     )
+      template(v-slot:fixedHeader)
+        h2 外部傳進來的
 
 </template>
 
@@ -73,17 +75,17 @@ export default {
         case 'Month':
           arr = this.isMobile()
             ? [
-              getEmptyTemplate({ year: 2020, month: 12 }),
-              getEmptyTemplate({ year: 2021, month: 1 }),
-              getEmptyTemplate({ year: 2021, month: 2 }),
-              getEmptyTemplate({ year: 2021, month: 3 }),
-              getEmptyTemplate({ year: 2021, month: 4 }),
-              getEmptyTemplate({ year: 2021, month: 5 })
+              getEmptyTemplate('Month', { year: 2020, month: 12 }),
+              getEmptyTemplate('Month', { year: 2021, month: 1 }),
+              getEmptyTemplate('Month', { year: 2021, month: 2 }),
+              getEmptyTemplate('Month', { year: 2021, month: 3 }),
+              getEmptyTemplate('Month', { year: 2021, month: 4 }),
+              getEmptyTemplate('Month', { year: 2021, month: 5 })
             ]
-            : getEmptyTemplate({ year: 2021, month: 2 })
+            : getEmptyTemplate('Month', { year: 2021, month: 2 })
           break
         case 'Week':
-          arr = getWholeWeekday(new Date(), 0)
+          arr = getEmptyTemplate('Week', { year: 2021, month: 2, day: 1 })
           break
       }
 
