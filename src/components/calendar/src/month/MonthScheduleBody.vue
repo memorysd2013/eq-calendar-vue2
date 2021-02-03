@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { isToday, isTheSameMonth } from 'eq-calendar-support'
+import { isTheSameMonth } from 'eq-calendar-support'
 
 export default {
   name: "eqMonthBody",
@@ -53,10 +53,6 @@ export default {
   },
 
   methods: {
-    isToday() {
-      return isToday()
-    },
-
     clickGrid(event, dayObj) {
       this.$emit('clickGrid', { event, dayObj })
     }
