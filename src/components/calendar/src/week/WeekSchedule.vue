@@ -4,13 +4,19 @@
       :date="date"
       :calendar="template"
       :weekStartAt="weekStartAt"
+      :headerDateFormat="options.headerDateFormat"
     )
       template(v-slot:fixedHeader)
         slot(name="fixedHeader")
-    WeekScheduleBody(
-      :calendar="template"
-      :weekStartAt="weekStartAt"
-    )
+
+    template(v-if="customWeekBody")
+      slot(name="customWeekBody")
+
+    template(v-else)
+      WeekScheduleBody(
+        :calendar="template"
+        :weekStartAt="weekStartAt"
+      )
 
 </template>
 
@@ -28,7 +34,9 @@ export default {
   props: {
     date: [Date, Number, String],
     template: Array,
-    weekStartAt: String
+    weekStartAt: String,
+    customWeekBody: Boolean,
+    options: Object
   },
   data: () => ({}),
 

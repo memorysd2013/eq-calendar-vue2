@@ -4,6 +4,7 @@
   )
     //- Year 年曆
     // .........
+
     //- Month 月曆
     template(v-if="mode === 'Month'")
       MonthSchedule(
@@ -26,9 +27,13 @@
         :date="date"
         :template="calendar"
         :weekStartAt="weekStartAt"
+        :customWeekBody="customWeekBody"
+        :options="options"
       )
         template(v-slot:fixedHeader)
           slot(name="fixedHeader")
+        template(v-slot:customWeekBody)
+          slot(name="customWeekBody")
 
 </template>
 
@@ -101,18 +106,36 @@ export default {
     },
 
     /**
+     * 是否客製化 [週曆] 內容
+     * - 只產生週曆 Header
+     */
+    customWeekBody: {
+      type: Boolean,
+      default: false
+    },
+
+    /**
      * options 其他參數
      *  - brackets: Boolean
      *    - Header 日期是否需要括號
+     * 
      *  - bracketsType: String
      *    - ex: '()', '[]', '{}' ... 任意兩個符號
+     * 
+     * - scheduleBodyHeight: String
+     *    - css height 參數, 設定 Body 高度, 超出則滾動
+     * 
+     * - headerDateFormat: String
+     *    - dayjs format, 僅有 Week 有用
+     *    - ex: 'M/DD', 'MM/DD'
      */
     options: {
       type: Object,
       default: () => ({
         brackets: true,
         bracketsType: '()',
-        scheduleBodyHeight: 'auto'
+        scheduleBodyHeight: 'auto',
+        headerDateFormat: 'M/DD'
       })
     }
   },

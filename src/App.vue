@@ -5,16 +5,19 @@
       :mode="mode"
       height="90vh"
       :calendar="template"
+      :customWeekBody="true"
       :positionList="calendarPosList"
       weekStartAt="Sun"
     )
       template(v-slot:fixedHeader)
         h2 外部傳進來的
+      template(v-slot:customWeekBody)
+        h3 外部傳進來的
 
 </template>
 
 <script>
-import { getEmptyTemplate, getWholeWeekday } from 'eq-calendar-support'
+import { getEmptyTemplate } from 'eq-calendar-support'
 import eqCalendar from '@/components/calendar/src/eqCalendar'
 
 export default {
@@ -24,7 +27,7 @@ export default {
   },
 
   data: () => ({
-    mode: 'Month',
+    mode: 'Week',
     template: [],
     calendarPosList: {},
 
@@ -33,14 +36,7 @@ export default {
     resizeDebounceTimer: null
   }),
 
-  destroyed() {
-    window.removeEventListener('resize', this.resizeListener, true)
-    this.$store.commit('DateV2/setPickedDate', new Date().getTime())
-    this.$store.commit('Calendar/clearCalendarPosList')
-  },
-
   async mounted() {
-    window.addEventListener('resize', this.resizeListener, true)
     this.setTemplate()
   },
   methods: {
@@ -70,10 +66,10 @@ export default {
     },
 
     setTemplate() {
-      let arr
+      let result
       switch (this.mode) {
         case 'Month':
-          arr = this.isMobile()
+          result = this.isMobile()
             ? [
               getEmptyTemplate('Month', { year: 2020, month: 12 }),
               getEmptyTemplate('Month', { year: 2021, month: 1 }),
@@ -85,11 +81,12 @@ export default {
             : getEmptyTemplate('Month', { year: 2021, month: 2 })
           break
         case 'Week':
-          arr = getEmptyTemplate('Week', { year: 2021, month: 2, day: 1 })
+          result = getEmptyTemplate('Week', { year: 2021, month: 2, day: 11 }, { weekStartAt: 0 })
+          console.log('result', result)
           break
       }
 
-      this.template = arr
+      this.template = result
     }
   }
 }

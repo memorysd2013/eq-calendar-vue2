@@ -4,25 +4,27 @@
       slot(name="fixedHeader")
     .schedule__header__grid.flex.column.center-center(v-for="obj in calendar")
       span.grid__weekday {{ obj.weekday | transfromWeekday(weekStartAt) }}
-      span.grid__date {{ obj.monthDay }}  
+      span.grid__date {{ obj.ms | headerDateFormatter(headerDateFormat) }}
 </template>
 
 <script>
+import dayjs from 'dayjs'
+
 export default {
   name: 'WeekScheduleHeader',
 
   props: {
     date: [Date, Number, String],
     calendar: Array,
-    weekStartAt: String
-  },
-  computed: {
-    // week() {
-    //   return this.
-    // }
+    weekStartAt: String,
+    headerDateFormat: String
   },
 
   filters: {
+    headerDateFormatter(val, format) {
+      return dayjs(val).format(format)
+    },
+
     transfromWeekday(val, weekStartAt) {
       let setting = {
         Sun: ['週日', '週一', '週二', '週三', '週四', '週五', '週六', '週日'],

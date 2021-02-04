@@ -4,9 +4,6 @@
     :data-month="`${templateDateInfo.year}-${templateDateInfo.month}`" 
     :data-index="templateIndex"
   )
-    // TODO
-    // 優化點擊事件 showBookingDialog
-    //- 點擊格子可以帶入排班
     .schedule__body__grid.flex(
       v-for="(dayObj, j) in template" 
       :class="{ pointer: dayObj.day, multiple }" 
