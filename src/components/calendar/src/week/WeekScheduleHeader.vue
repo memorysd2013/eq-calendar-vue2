@@ -1,7 +1,6 @@
 <template lang="pug">
   .WeekScheduleHeader.flex
-    .schedule__header__grid
-      slot(name="fixedHeader")
+    slot(name="fixedHeader")
     .schedule__header__grid.flex.column.center-center(v-for="obj in calendar")
       span.grid__weekday {{ obj.weekday | transfromWeekday(weekStartAt) }}
       span.grid__date {{ obj.ms | headerDateFormatter(headerDateFormat) }}
