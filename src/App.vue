@@ -10,7 +10,8 @@
       weekStartAt="Sun"
     )
       template(v-slot:fixedHeader)
-        h2 外部傳進來的
+        .fixedHeader
+          h4 外部傳進來的
       template(v-slot:customWeekBody)
         h3 外部傳進來的
 
@@ -82,7 +83,6 @@ export default {
           break
         case 'Week':
           result = getEmptyTemplate('Week', { year: 2021, month: 2, day: 11 }, { weekStartAt: 0 })
-          console.log('result', result)
           break
       }
 
@@ -95,5 +95,10 @@ export default {
 <style lang="stylus" scoped>
   .main
     max-width 1366px
+    margin auto
+  
+  .fixedHeader
+    width 100%
+    text-align center
     margin auto
 </style>

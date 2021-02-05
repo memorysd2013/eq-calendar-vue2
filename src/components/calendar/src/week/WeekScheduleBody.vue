@@ -1,4 +1,6 @@
 <template lang="pug">
+  // TODO
+  // 完成週曆
   .WeekScheduleBody
     //- .schedule__body__row.flex(v-for="item in template")
     //-   .schedule__body__row__grid.flex.column.v-center(v-for="wd in calendar")

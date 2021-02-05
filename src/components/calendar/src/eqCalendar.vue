@@ -135,7 +135,7 @@ export default {
         brackets: true,
         bracketsType: '()',
         scheduleBodyHeight: 'auto',
-        headerDateFormat: 'M/DD'
+        headerDateFormat: 'M/D'
       })
     }
   },
