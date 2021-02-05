@@ -1,7 +1,11 @@
 <template lang="pug">
   .TimelineColumn.flex.column
-    .timestep(v-for="clock in 24" :style="{ height: `${gap}px` }")
-      span.timestepLabel(:class="{ hide: hideFirstClock && clock === 1 }") {{ clock | transferClock }}
+    .timestep(v-for="(item, index) in template" :style="{ height: `${gap}px` }")
+      .timestepLabel(:class="{ hide: hideFirstClock && index === 0 }")
+        template(v-if="item.clock")
+          span {{ item.clock }}
+        template(v-else)
+          span {{ index | transferClock }}
 
 </template>
 
@@ -14,10 +18,11 @@ export default {
       default: true
     },
     gap: [Number, String],
+    template: Array,
   },
   filters: {
     transferClock(clock) {
-      return clock <= 10 ? `0${clock - 1}:00` : `${clock - 1}:00`
+      return clock < 10 ? `0${clock}:00` : `${clock}:00`
     },
   },
 }

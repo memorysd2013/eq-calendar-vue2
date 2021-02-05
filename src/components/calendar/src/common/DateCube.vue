@@ -1,5 +1,5 @@
 <template lang="pug">
-  .DateCube.flex.column.v-center(:class="{ today }")
+  .DateCube.flex.column.v-center(:class="{ today }" :style="dateCubeStyle")
     span.mainDate {{ mainDate }}
     span.weekday {{ weekday | weekdayFormat(weekdayFormatter) }}
 
@@ -17,6 +17,10 @@ export default {
     weekdayFormatter: {
       type: Array,
       default: () => (['週日', '週ㄧ', '週二', '週三', '週四', '週五', '週六'])
+    },
+    todayColor: {
+      type: String,
+      default: '#eb8d48'
     }
   },
   computed: {
@@ -31,8 +35,12 @@ export default {
       dayjs.extend(isToday)
       return dayjs(_date).isToday()
     },
-    todayColor() {
-      //- 自訂
+    dateCubeStyle() {
+      return this.today
+        ? {
+          color: this.todayColor
+        }
+        : {}
     }
   },
   filters: {
@@ -44,7 +52,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-today_c = #eb8d48
 cubeMinW = 38px
 
 .DateCube
@@ -52,7 +59,6 @@ cubeMinW = 38px
   font-weight 500
   &.today
     font-weight bold
-    color today_c
 
   .mainDate
     font-size 1.375rem

@@ -1,7 +1,10 @@
 <template lang="pug">
-  .DayScheduleHeader.flex
+  .DayScheduleHeader.flex(:style="headerStlye")
     .dateInfo.flex.center-center
-      DateCube(:date="date")
+      DateCube(
+        :date="date"
+        :todayColor="todayColor"
+      )
     .headerSlot
       slot(name="fixedHeader")
 
@@ -19,7 +22,16 @@ export default {
   },
   props: {
     date: [Date, Number, String],
-    weekdayFormatter: Array
+    todayColor: String,
+    weekdayFormatter: Array,
+    height: {
+      type: [Number, String],
+      default: 96
+    },
+    top: {
+      type: [Number, String],
+      default: 0
+    },
   },
   computed: {
     mainDate() {
@@ -27,6 +39,12 @@ export default {
     },
     weekday() {
       return getWeekday(this.date)
+    },
+    headerStlye() {
+      return {
+        height: `${this.height}px`,
+        top: `${this.top}px`
+      }
     }
   }
 }

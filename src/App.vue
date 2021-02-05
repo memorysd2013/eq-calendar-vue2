@@ -15,6 +15,9 @@
       template(v-slot:customWeekBody)
         h3 外部傳進來的
 
+      template(v-slot:content="{ hourObj }")
+        span 我是幾點 {{ hourObj.value }}
+
 </template>
 
 <script>
@@ -85,7 +88,7 @@ export default {
           result = getEmptyTemplate('Week', { year: 2021, month: 2, day: 11 }, { weekStartAt: 0 })
           break
         case 'Day':
-          result = getEmptyTemplate('Day', { year: 2021, month: 2, day: 11 }, { weekStartAt: 0 })
+          result = getEmptyTemplate('Day', { startHour: 0, endHour: 23 }, {})
           console.log('Day template', result)
           break
       }

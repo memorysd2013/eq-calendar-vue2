@@ -1,19 +1,23 @@
 <template lang="pug">
   .DaySchedule
-    span DaySchedule
-    span {{ date }}
-    //- span {{ template }}
-    //- span {{ options }}
     //- Header
     DayScheduleHeader(
       :date="date"
+      :height="options.headerHeight"
+      :todayColor="options.todayColor"
+      :weekdayFormatter="options.weekdayFormatter"
     )
       template(v-slot:fixedHeader)
         slot(name="fixedHeader")
     
     //- Body
-    DayScheduleBody
     // 資料的方式 內部的資料結構
+    DayScheduleBody(
+      :template="template"
+      :height="options.headerHeight"
+    )
+      template(v-slot:content="{ hourObj }")
+        slot(name="content" :hourObj="hourObj")
 
 </template>
 

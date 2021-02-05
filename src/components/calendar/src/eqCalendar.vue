@@ -45,6 +45,8 @@
       )
         template(v-slot:fixedHeader)
           slot(name="fixedHeader")
+        template(v-slot:content="{ hourObj }")
+          slot(name="content" :hourObj="hourObj")
 
 </template>
 
