@@ -27,7 +27,7 @@ export default {
   },
 
   data: () => ({
-    mode: 'Week',
+    mode: 'Day',
     template: [],
     calendarPosList: {},
 
@@ -83,6 +83,10 @@ export default {
         case 'Week':
           result = getEmptyTemplate('Week', { year: 2021, month: 2, day: 11 }, { weekStartAt: 0 })
           console.log('result', result)
+          break
+        case 'Day':
+          result = getEmptyTemplate('Day', { year: 2021, month: 2, day: 11 }, { weekStartAt: 0 })
+          console.log('Day template', result)
           break
       }
 
