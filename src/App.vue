@@ -14,6 +14,8 @@
           h4 外部傳進來的
       template(v-slot:customWeekBody)
         h3 外部傳進來的
+      template(v-slot:tip)
+        h5 !
 
 </template>
 
