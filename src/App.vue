@@ -28,7 +28,7 @@ export default {
   },
 
   data: () => ({
-    mode: 'Week',
+    mode: 'Month',
     template: [],
     calendarPosList: {},
 

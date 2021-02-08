@@ -58,7 +58,8 @@ export default {
     date: [Date, Number, String],
     template: Array,
     weekStartAt: String,
-    positionList: Object
+    positionList: Object,
+    options: Object
   },
   data: () => ({
     currentMonth: '',
