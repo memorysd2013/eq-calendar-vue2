@@ -38,6 +38,8 @@
           :template="template"
           @clickGrid="clickGrid"
         )
+          template(v-slot:tip="{ dayObj }")
+            slot(name="tip" :dayObj="dayObj")
           template(v-slot:content="{ dayObj }")
             slot(name="content" :dayObj="dayObj")
     
