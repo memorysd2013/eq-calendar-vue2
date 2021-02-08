@@ -18,10 +18,6 @@ export default {
   },
   props: {
     template: Array,
-    height: {
-      type: [Number, String],
-      default: 96
-    },
   },
   data: () => ({
     rowHeight: 72

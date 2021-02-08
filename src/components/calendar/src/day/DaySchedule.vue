@@ -3,18 +3,18 @@
     //- Header
     DayScheduleHeader(
       :date="date"
+      :top="options.headerTop"
       :height="options.headerHeight"
       :todayColor="options.todayColor"
       :weekdayFormatter="options.weekdayFormatter"
+      :headerDateFormat="options.headerDateFormat"
     )
       template(v-slot:fixedHeader)
         slot(name="fixedHeader")
     
     //- Body
-    // 資料的方式 內部的資料結構
     DayScheduleBody(
       :template="template"
-      :height="options.headerHeight"
     )
       template(v-slot:content="{ hourObj }")
         slot(name="content" :hourObj="hourObj")

@@ -15,8 +15,9 @@
       template(v-slot:customWeekBody)
         h3 外部傳進來的
 
+      //- slot for DaySchedule
       template(v-slot:content="{ hourObj }")
-        span 我是幾點 {{ hourObj.value }}
+        span {{ hourObj }}
 
 </template>
 

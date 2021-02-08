@@ -36,6 +36,7 @@ export default {
       transform translateY(-13px)
       text-align center
       padding 0 8px 0 15px
+      color #666
       &.hide
         opacity 0
 

@@ -4,6 +4,8 @@
       DateCube(
         :date="date"
         :todayColor="todayColor"
+        :weekdayFormatter="weekdayFormatter"
+        :headerDateFormat="headerDateFormat"
       )
     .headerSlot
       slot(name="fixedHeader")
@@ -11,7 +13,6 @@
 </template>
 
 <script>
-import dayjs from 'dayjs'
 import { getWeekday } from 'eq-calendar-support'
 import DateCube from '@/components/calendar/src/common/DateCube'
 
@@ -24,6 +25,7 @@ export default {
     date: [Date, Number, String],
     todayColor: String,
     weekdayFormatter: Array,
+    headerDateFormat: String,
     height: {
       type: [Number, String],
       default: 96
@@ -34,9 +36,6 @@ export default {
     },
   },
   computed: {
-    mainDate() {
-      return dayjs(this.date).format('M/D')
-    },
     weekday() {
       return getWeekday(this.date)
     },

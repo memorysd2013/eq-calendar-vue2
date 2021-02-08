@@ -14,18 +14,22 @@ export default {
   name: 'DateCube',
   props: {
     date: [Date, Number, String],
+    todayColor: {
+      type: String,
+      default: '#eb8d48'
+    },
     weekdayFormatter: {
       type: Array,
       default: () => (['週日', '週ㄧ', '週二', '週三', '週四', '週五', '週六'])
     },
-    todayColor: {
+    headerDateFormat: {
       type: String,
-      default: '#eb8d48'
+      default: 'M/D'
     }
   },
   computed: {
     mainDate() {
-      return dayjs(this.date).format('M/D')
+      return dayjs(this.date).format(this.headerDateFormat)
     },
     weekday() {
       return getWeekday(this.date)
