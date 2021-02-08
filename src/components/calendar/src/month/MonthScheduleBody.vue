@@ -6,9 +6,10 @@
   )
     .schedule__body__grid.flex(
       v-for="(dayObj, j) in template" 
-      :class="{ pointer: dayObj.day, multiple }" 
+      :class="[dayObj.day && 'pointer', multiple && 'multiple']" 
       @click.self="clickGrid($event, dayObj)"
     )
+      slot(name="tip" :dayObj="dayObj")
       .grid__date(:class="{ today: dayObj.today }" @click.self="clickGrid($event, dayObj)")
         span {{ dayObj.day }}
       .grid__content.flex.column.v-center(@click.self="clickGrid($event, dayObj)")
@@ -31,7 +32,8 @@ export default {
       default: () => []
     },
     templateIndex: Number,
-    templateLength: Number
+    templateLength: Number,
+    options: Object
   },
 
   computed: {
@@ -46,7 +48,7 @@ export default {
         current: this.date,
         target: this.templateDateInfo.fullDate
       })
-    },
+    }
   },
 
   methods: {

@@ -26,6 +26,8 @@
           :templateLength="template.length"
           @clickGrid="clickGrid"
         )
+          template(v-slot:tip="{ dayObj }")
+            slot(name="tip" :dayObj="dayObj")
           template(v-slot:content="{ dayObj }")
             slot(name="content" :dayObj="dayObj")
       
@@ -54,8 +56,7 @@ export default {
     date: [Date, Number, String],
     template: Array,
     weekStartAt: String,
-    positionList: Object,
-    options: Object
+    positionList: Object
   },
   data: () => ({
     currentMonth: '',
