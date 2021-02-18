@@ -96,7 +96,6 @@ export default {
 
 <style lang="stylus" scoped>
   .main
-    max-width 1366px
     margin auto
   
   .fixedHeader

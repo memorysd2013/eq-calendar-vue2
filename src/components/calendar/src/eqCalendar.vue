@@ -1,6 +1,6 @@
 <template lang="pug">
   section.calendar-wrapper(
-    :style="{ height: height }"
+    :style="calendarStyle"
   )
     //- Year 年曆
     // .........
@@ -42,6 +42,7 @@
 <script>
 import MonthSchedule from './month/MonthSchedule'
 import WeekSchedule from './week/WeekSchedule'
+import { unitFormat } from '../../../utils/'
 
 export default {
   name: 'eqCalendar',
@@ -66,6 +67,14 @@ export default {
     height: {
       type: [String, Number],
       default: 'auto'
+    },
+
+    /**
+     * 最大寬度
+     */
+    maxWidth: {
+      type: [String, Number],
+      default: ''
     },
 
     /**
@@ -149,7 +158,14 @@ export default {
       set(v) {
         this.$emit('update:positionList', v)
       }
-    }
+    },
+
+    calendarStyle() {
+      return {
+        height: unitFormat(this.height),
+        maxWidth: unitFormat(this.maxWidth)
+      }
+    },
   },
 
   methods: {
