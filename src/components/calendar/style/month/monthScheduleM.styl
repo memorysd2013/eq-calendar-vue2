@@ -15,10 +15,6 @@ schedule__header_h = 40px
     overflow visible
     box-shadow 0 3px 6px 0 rgba(0, 0, 0, 0.16)
 
-    // 全部 grid 共用
-    .schedule__header__col
-      width calc(100% / 7)
-
     // header
     .schedule__header
       position sticky
@@ -31,8 +27,12 @@ schedule__header_h = 40px
       height schedule__header_h
 
       .schedule__header__col
-        text-align center
-        padding .25rem
+        font-weight normal
+        &.brackets
+          &:before
+            content ''
+          &:after
+            content ''
     
     .schedule__body
       flex-wrap wrap
