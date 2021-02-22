@@ -17,6 +17,10 @@
       template(v-slot:tip)
         h5 !
 
+      //- slot for DaySchedule
+      template(v-slot:content="{ hourObj }")
+        span {{ hourObj }}
+
 </template>
 
 <script>
@@ -30,7 +34,7 @@ export default {
   },
 
   data: () => ({
-    mode: 'Month',
+    mode: 'Day',
     template: [],
     calendarPosList: {},
 
@@ -85,6 +89,10 @@ export default {
           break
         case 'Week':
           result = getEmptyTemplate('Week', { year: 2021, month: 2, day: 11 }, { weekStartAt: 0 })
+          break
+        case 'Day':
+          result = getEmptyTemplate('Day', { startHour: 0, endHour: 23 }, {})
+          console.log('Day template', result)
           break
       }
 

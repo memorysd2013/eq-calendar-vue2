@@ -37,18 +37,33 @@
         template(v-slot:customWeekBody)
           slot(name="customWeekBody")
 
+    //- Day 日曆
+    template(v-if="mode === 'Day'")
+      DaySchedule(
+        ref="DaySchedule"
+        :date="date"
+        :template="calendar"
+        :options="options"
+      )
+        template(v-slot:fixedHeader)
+          slot(name="fixedHeader")
+        template(v-slot:content="{ hourObj }")
+          slot(name="content" :hourObj="hourObj")
+
 </template>
 
 <script>
 import MonthSchedule from './month/MonthSchedule'
 import WeekSchedule from './week/WeekSchedule'
+import DaySchedule from './day/DaySchedule'
 import { unitFormat } from '../../../utils/'
 
 export default {
   name: 'eqCalendar',
   components: {
     MonthSchedule,
-    WeekSchedule
+    WeekSchedule,
+    DaySchedule,
   },
   props: {
     /**
