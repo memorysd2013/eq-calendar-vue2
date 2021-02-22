@@ -14,6 +14,8 @@
           h4 外部傳進來的
       template(v-slot:customWeekBody)
         h3 外部傳進來的
+      template(v-slot:tip)
+        h5 !
 
       //- slot for DaySchedule
       template(v-slot:content="{ hourObj }")
@@ -102,7 +104,6 @@ export default {
 
 <style lang="stylus" scoped>
   .main
-    max-width 1366px
     margin auto
   
   .fixedHeader

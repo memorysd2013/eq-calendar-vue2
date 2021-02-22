@@ -1,6 +1,6 @@
 <template lang="pug">
   section.calendar-wrapper(
-    :style="{ height: height }"
+    :style="calendarStyle"
   )
     //- Year 年曆
     // .........
@@ -17,6 +17,8 @@
         @clickGrid="clickGrid"
         @scroll="onScroll"
       )
+        template(v-slot:tip="{ dayObj }")
+          slot(name="tip" :dayObj="dayObj")
         template(v-slot:content="{ dayObj }")
           slot(name="content" :dayObj="dayObj")
     
@@ -54,6 +56,7 @@
 import MonthSchedule from './month/MonthSchedule'
 import WeekSchedule from './week/WeekSchedule'
 import DaySchedule from './day/DaySchedule'
+import { unitFormat } from '../../../utils/'
 
 export default {
   name: 'eqCalendar',
@@ -79,6 +82,14 @@ export default {
     height: {
       type: [String, Number],
       default: 'auto'
+    },
+
+    /**
+     * 最大寬度
+     */
+    maxWidth: {
+      type: [String, Number],
+      default: ''
     },
 
     /**
@@ -162,7 +173,14 @@ export default {
       set(v) {
         this.$emit('update:positionList', v)
       }
-    }
+    },
+
+    calendarStyle() {
+      return {
+        height: unitFormat(this.height),
+        maxWidth: unitFormat(this.maxWidth)
+      }
+    },
   },
 
   methods: {
@@ -182,8 +200,5 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
-  .calendar-wrapper
-    overflow auto
 
 </style>
