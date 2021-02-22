@@ -201,4 +201,9 @@ export default {
 
 <style lang="stylus" scoped>
 
+  //- 手機版需要 overflow
+  @media screen and (max-width 768px)
+    .calendar-wrapper
+      overflow auto
+
 </style>
