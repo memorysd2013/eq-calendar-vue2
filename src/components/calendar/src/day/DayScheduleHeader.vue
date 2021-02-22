@@ -50,6 +50,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../../style/day/daySchedule.styl'
+@import '../../style/day/dayScheduleHeader.styl'
 
 </style>
