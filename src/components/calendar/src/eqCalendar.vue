@@ -186,7 +186,4 @@ export default {
 
 <style lang="stylus" scoped>
 
-  .calendar-wrapper
-    overflow auto
-
 </style>
