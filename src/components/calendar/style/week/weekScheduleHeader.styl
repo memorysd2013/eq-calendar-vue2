@@ -1,5 +1,6 @@
 schedule_header_h = 76px
 schedule_min_w = 1110px
+highlight_c = #2761bc
 
 .WeekScheduleHeader
   position sticky
@@ -13,6 +14,13 @@ schedule_min_w = 1110px
   .schedule__header__grid
     width 100%
     color #333
+
+    &.highlight
+      color highlight_c
+      .grid__weekday
+        font-weight 500
+      .grid__date
+        font-weight bold
 
   .grid__weekday
     font-size .875rem

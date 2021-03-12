@@ -4,6 +4,7 @@
       :date="date"
       :calendar="template"
       :weekStartAt="weekStartAt"
+      :highlightDate="highlightDate"
       :headerDateFormat="options.headerDateFormat"
     )
       template(v-slot:fixedHeader)
@@ -36,6 +37,7 @@ export default {
     template: Array,
     weekStartAt: String,
     customWeekBody: Boolean,
+    highlightDate: Array,
     options: Object
   },
   data: () => ({}),
