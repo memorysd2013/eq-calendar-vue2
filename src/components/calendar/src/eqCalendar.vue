@@ -29,6 +29,7 @@
         :date="date"
         :template="calendar"
         :weekStartAt="weekStartAt"
+        :highlightDate="highlightDate"
         :customWeekBody="customWeekBody"
         :options="options"
       )
@@ -115,6 +116,14 @@ export default {
     positionList: {
       type: Object,
       default: () => ({})
+    },
+
+    /**
+     *
+     */
+    highlightDate: {
+      type: Array,
+      default: () => ([])
     },
 
     /**

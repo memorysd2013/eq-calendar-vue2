@@ -1,7 +1,7 @@
 <template lang="pug">
   .WeekScheduleHeader.flex
     slot(name="fixedHeader")
-    .schedule__header__grid.flex.column.center-center(v-for="obj in calendar")
+    .schedule__header__grid.flex.column.center-center(v-for="obj in calendar" :class="[dateHighlight(obj) && 'highlight']")
       span.grid__weekday {{ obj.weekday | transfromWeekday(weekStartAt) }}
       span.grid__date {{ obj.ms | headerDateFormatter(headerDateFormat) }}
 </template>
@@ -16,6 +16,7 @@ export default {
     date: [Date, Number, String],
     calendar: Array,
     weekStartAt: String,
+    highlightDate: Array,
     headerDateFormat: String
   },
 
@@ -32,6 +33,15 @@ export default {
 
       return setting[weekStartAt][val]
     },
+  },
+
+  methods: {
+    dateHighlight(obj) {
+      let { highlightDate } = this
+      return highlightDate
+        ? highlightDate.includes(obj.fullDate)
+        : false
+    }
   }
 }
 </script>
