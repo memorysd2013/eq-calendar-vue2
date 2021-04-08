@@ -34,7 +34,7 @@ export default {
   },
 
   data: () => ({
-    mode: 'Day',
+    mode: 'Month',
     template: [],
     calendarPosList: {},
 

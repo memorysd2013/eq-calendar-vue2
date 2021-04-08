@@ -13,7 +13,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "dayjs": "^1.10.4",
-    "eq-calendar-support": "^1.0.9",
+    "eq-calendar-support": "^1.1.1",
     "eslint-loader": "^4.0.2",
     "pug": "^3.0.0",
     "pug-plain-loader": "^1.1.0",
