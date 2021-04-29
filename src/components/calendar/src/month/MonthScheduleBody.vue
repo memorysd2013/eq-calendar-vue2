@@ -6,7 +6,7 @@
   )
     .schedule__body__grid.flex(
       v-for="(dayObj, j) in template" 
-      :class="[multiple && 'multiple']"
+      :class="[dayObj.day && 'actualDday', multiple && 'multiple']"
       :style="dayObj.dayStyle"
       @click.self="clickGrid($event, dayObj)"
     )
