@@ -96,6 +96,16 @@ export default {
           break
       }
 
+      // testing
+      // console.log({ result })
+      // result.forEach(r => {
+      //   if (r.dayStyle) {
+      //     r.dayStyle.backgroundColor = '#ffaaaa'
+      //     r.dayCustomClass = 'testing'
+      //     r.dayStyle.cursor = 'default'
+      //   }
+      // })
+
       this.template = result
     }
   }

@@ -1,6 +1,6 @@
 {
   "name": "eq-calendar-vue2",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "main": "dist/eq-calendar-vue2.common.js",
   "license": "MIT",
   "scripts": {
@@ -13,7 +13,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "dayjs": "^1.10.4",
-    "eq-calendar-support": "^1.1.1",
+    "eq-calendar-support": "^1.1.2",
     "eslint-loader": "^4.0.2",
     "pug": "^3.0.0",
     "pug-plain-loader": "^1.1.0",
