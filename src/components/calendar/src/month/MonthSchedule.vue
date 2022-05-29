@@ -140,9 +140,10 @@ export default {
     },
 
     async scrollEvent(e) {
+      if (this.scrolling) return
       clearTimeout(this.scrollingTimer)
       this.scrolling = true
-      this.scrollingTimer = setTimeout(() => this.scrolling = false, 300)
+      this.scrollingTimer = setTimeout(() => this.scrolling = false, 1000)
 
       this.setCurrentMonth({
         scrollTop: e.target.scrollTop
